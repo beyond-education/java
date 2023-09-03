@@ -1,6 +1,6 @@
-package academy.beyondeducation.java.classes.service;
+package academy.beyondeducation.java.part1.classes.service;
 
-import academy.beyondeducation.java.classes.data.Company;
+import academy.beyondeducation.java.part1.classes.data.Company;
 
 public class CompanyNameAnalyser {
     private boolean hasFancyName(Company company) {

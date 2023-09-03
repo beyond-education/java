@@ -1,4 +1,4 @@
-package academy.beyondeducation.java.classes.service;
+package academy.beyondeducation.java.part1.classes.service;
 
 public class InadequateProfitService {
     public void increase(double amount, double profit) {

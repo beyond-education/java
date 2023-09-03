@@ -1,7 +1,7 @@
-package academy.beyondeducation.java.encapsulation;
+package academy.beyondeducation.java.part1.encapsulation;
 
-import academy.beyondeducation.java.classes.data.Company;
-import academy.beyondeducation.java.classes.service.CompanyNameAnalyser;
+import academy.beyondeducation.java.part1.classes.data.Company;
+import academy.beyondeducation.java.part1.classes.service.CompanyNameAnalyser;
 
 public class Encapsulation {
     public static void main(String[] args) {

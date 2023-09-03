@@ -1,8 +1,8 @@
-package academy.beyondeducation.java.types;
+package academy.beyondeducation.java.part1.types;
 
-import academy.beyondeducation.java.classes.data.Company;
-import academy.beyondeducation.java.classes.service.InadequateProfitService;
-import academy.beyondeducation.java.classes.service.ProfitService;
+import academy.beyondeducation.java.part1.classes.data.Company;
+import academy.beyondeducation.java.part1.classes.service.InadequateProfitService;
+import academy.beyondeducation.java.part1.classes.service.ProfitService;
 
 public class ReferenceVsValueTypes {
     public static void main(String[] args) {

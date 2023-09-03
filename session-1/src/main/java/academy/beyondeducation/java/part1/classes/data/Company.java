@@ -1,4 +1,4 @@
-package academy.beyondeducation.java.classes.data;
+package academy.beyondeducation.java.part1.classes.data;
 
 public class Company {
     private String boringName;
