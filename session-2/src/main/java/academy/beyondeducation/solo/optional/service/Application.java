@@ -1,7 +1,7 @@
-package academy.beyondeducation.part3.optional.service;
+package academy.beyondeducation.solo.optional.service;
 
-import academy.beyondeducation.part3.optional.data.Coin;
-import academy.beyondeducation.part3.optional.data.CointType;
+import academy.beyondeducation.solo.optional.data.Coin;
+import academy.beyondeducation.solo.optional.data.CointType;
 
 import java.util.ArrayList;
 import java.util.Set;

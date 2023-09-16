@@ -1,4 +1,4 @@
-package academy.beyondeducation.part3.optional.data;
+package academy.beyondeducation.solo.optional.data;
 
 public record Coin(CointType cointType, int value) {
     @Override

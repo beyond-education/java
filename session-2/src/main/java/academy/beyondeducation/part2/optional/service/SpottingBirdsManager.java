@@ -9,8 +9,8 @@ public class SpottingBirdsManager {
 
     public ArrayList<Bird> getLongSpottedBirds(ArrayList<Bird> birds) {
         ArrayList<Bird> longSpottedBirds = new ArrayList<>();
-        for(Bird bird : birds) {
-            if(bird.duration() > MIN_DURATION) {
+        for (Bird bird : birds) {
+            if (bird.duration() > MIN_DURATION) {
                 longSpottedBirds.add(bird);
             }
         }

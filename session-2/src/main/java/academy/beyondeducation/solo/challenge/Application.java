@@ -1,4 +1,4 @@
-package academy.beyondeducation.part3.challenge;
+package academy.beyondeducation.solo.challenge;
 
 import java.util.ArrayList;
 import java.util.Set;
