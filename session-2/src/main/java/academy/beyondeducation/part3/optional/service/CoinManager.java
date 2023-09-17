@@ -1,6 +1,6 @@
-package academy.beyondeducation.solo.optional.service;
+package academy.beyondeducation.part3.optional.service;
 
-import academy.beyondeducation.solo.optional.data.Coin;
+import academy.beyondeducation.part3.optional.data.Coin;
 
 import java.util.ArrayList;
 import java.util.HashSet;
