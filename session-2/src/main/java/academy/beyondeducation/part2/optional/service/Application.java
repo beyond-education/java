@@ -1,6 +1,5 @@
 package academy.beyondeducation.part2.optional.service;
 
-import academy.beyondeducation.part2.challenge.SpottingBirdsCounter;
 import academy.beyondeducation.part2.optional.data.Bird;
 
 import java.util.ArrayList;
