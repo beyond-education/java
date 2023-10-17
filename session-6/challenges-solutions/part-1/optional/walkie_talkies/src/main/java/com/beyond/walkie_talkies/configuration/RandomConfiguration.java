@@ -8,7 +8,7 @@ import java.util.Random;
 @Configuration
 public class RandomConfiguration {
     @Bean
-    public Random getRandom() {
+    public Random random() {
         return new Random();
     }
 }
