@@ -21,9 +21,10 @@ public class MachineRunner implements ApplicationRunner {
 
     @Override
     public void run(ApplicationArguments args) {
+        System.out.println("Provide snacks to stock:");
         String snacksLine = scanner.nextLine();
         List<String> snacks = Arrays.stream(snacksLine.split(",")).toList();
-        snacks.forEach(snack->machineStorage.getSnacks().add(snack));
+        snacks.forEach(snack -> machineStorage.getSnacks().add(snack));
         System.out.println("snacks = " + machineStorage.getSnacks());
     }
 }

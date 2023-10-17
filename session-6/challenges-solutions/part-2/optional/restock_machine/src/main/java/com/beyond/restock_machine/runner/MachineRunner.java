@@ -13,24 +13,23 @@ import java.util.Scanner;
 @Component
 public class MachineRunner implements ApplicationRunner {
     private final Scanner scanner;
-    private final MachineStorage machineStorage;
     private final VendorMachineService vendorMachineService;
 
-    public MachineRunner(Scanner scanner, MachineStorage machineStorage, VendorMachineService vendorMachineService) {
+    public MachineRunner(Scanner scanner, VendorMachineService vendorMachineService) {
         this.scanner = scanner;
-        this.machineStorage = machineStorage;
         this.vendorMachineService = vendorMachineService;
     }
 
     @Override
     public void run(ApplicationArguments args) {
+        System.out.println("Provide snacks to stock:");
         String snacksLine = scanner.nextLine();
         List<String> snacks = Arrays.stream(snacksLine.split(",")).toList();
-        snacks.forEach(snack->machineStorage.getSnacks().add(snack));
+        snacks.forEach(snack -> vendorMachineService.add(snack));
         System.out.println("snacks = " + vendorMachineService.getAllSnacks());
         String snack = "";
         String snackCode;
-        while(machineStorage.getSnacks().size() > 0) {
+        while (!vendorMachineService.getAllSnacks().isEmpty()) {
             System.out.print("Please input a snack code: ");
             snackCode = scanner.nextLine();
             try {
@@ -40,11 +39,11 @@ public class MachineRunner implements ApplicationRunner {
             } catch (NumberFormatException nfe) {
                 System.out.println("Please only input numbers!");
             } catch (IndexOutOfBoundsException ioob) {
-                int lastIndex = machineStorage.getSnacks().size() - 1;
+                int lastIndex = vendorMachineService.getAllSnacks().size() - 1;
                 System.out.println("Please choose only valid snack codes " +
                         "(from 0 to " + lastIndex + ")");
             } catch (Exception e) {
-                System.out.println("An error occured, please try it again.");
+                System.out.println("An error occurred, please try it again.");
             }
         }
 

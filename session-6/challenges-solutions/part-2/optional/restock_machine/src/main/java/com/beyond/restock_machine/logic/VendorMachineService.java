@@ -13,6 +13,10 @@ public class VendorMachineService {
         this.machineStorage = machineStorage;
     }
 
+    public void add(String snack) {
+        machineStorage.getSnacks().add(snack);
+    }
+
     public String getSnack(int numericCode) {
         return machineStorage.getSnacks().remove(numericCode);
     }
