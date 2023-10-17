@@ -5,22 +5,17 @@ import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.stereotype.Component;
 
-import java.util.Scanner;
-
 @Component
 public class BizarreClockRunner implements ApplicationRunner {
-
     private final TimeLapseService timeLapseService;
-    private final Scanner scanner;
 
-    public BizarreClockRunner(TimeLapseService timeLapseService, Scanner scanner) {
+    public BizarreClockRunner(TimeLapseService timeLapseService) {
         this.timeLapseService = timeLapseService;
-        this.scanner = scanner;
     }
 
     @Override
     public void run(ApplicationArguments args) {
-        for (int i=0; i<24; i++) {
+        for (int i = 0; i < 24; i++) {
             timeLapseService.increaseTimer();
         }
     }

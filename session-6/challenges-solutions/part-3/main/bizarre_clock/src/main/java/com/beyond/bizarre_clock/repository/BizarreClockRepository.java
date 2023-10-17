@@ -6,15 +6,8 @@ import java.util.Set;
 
 @Repository
 public class BizarreClockRepository {
-    private int currentHour;
-
-
-    private Set<Integer> bizarreHours;
-
-    public BizarreClockRepository() {
-        currentHour = 0;
-        bizarreHours = Set.of(0, 11, 22);
-    }
+    private int currentHour = 0;
+    private final Set<Integer> bizarreHours = Set.of(0, 11, 22);
 
     public int getCurrentHour() {
         return currentHour;

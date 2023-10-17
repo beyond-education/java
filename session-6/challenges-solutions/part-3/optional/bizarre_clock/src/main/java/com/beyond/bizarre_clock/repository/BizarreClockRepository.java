@@ -1,19 +1,17 @@
 package com.beyond.bizarre_clock.repository;
 
-import com.beyond.bizarre_clock.logic.BizarreHourContainer;
 import org.springframework.stereotype.Repository;
 
 import java.util.Set;
 
 @Repository
 public class BizarreClockRepository {
-    private int currentHour;
+    private int currentHour = 0;
 
-    private final BizarreHourContainer bizarreHoursContainer;
+    private final Set<Integer> bizarreHours;
 
-    public BizarreClockRepository(BizarreHourContainer bizarreHoursContainer) {
-        currentHour = 0;
-        this.bizarreHoursContainer = bizarreHoursContainer;
+    public BizarreClockRepository(Set<Integer> bizarreHours) {
+        this.bizarreHours = bizarreHours;
     }
 
     public int getCurrentHour() {
@@ -25,7 +23,6 @@ public class BizarreClockRepository {
     }
 
     public Set<Integer> getBizarreHours() {
-//        return bizarreHours;
-        return bizarreHoursContainer.getBizarreHours();
+        return bizarreHours;
     }
 }

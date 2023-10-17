@@ -9,7 +9,6 @@ import java.util.Scanner;
 
 @Component
 public class BizarreClockRunner implements ApplicationRunner {
-
     private final TimeLapseService timeLapseService;
     private final Scanner scanner;
 
@@ -20,7 +19,8 @@ public class BizarreClockRunner implements ApplicationRunner {
 
     @Override
     public void run(ApplicationArguments args) {
-        while(!scanner.nextLine().equalsIgnoreCase("over")) {
+        while (true) {
+            scanner.nextLine();
             timeLapseService.increaseTimer();
         }
     }
