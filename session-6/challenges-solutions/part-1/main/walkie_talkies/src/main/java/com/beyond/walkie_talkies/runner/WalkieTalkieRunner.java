@@ -18,6 +18,7 @@ public class WalkieTalkieRunner implements ApplicationRunner {
 
     @Override
     public void run(ApplicationArguments args) {
+        System.out.println("Beginning of the communication: ");
         List<String> inputs = communication.getInputLines();
         System.out.println("inputs = " + inputs);
     }
