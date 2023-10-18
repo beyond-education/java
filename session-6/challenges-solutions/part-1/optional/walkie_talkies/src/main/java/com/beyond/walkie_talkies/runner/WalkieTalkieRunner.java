@@ -10,7 +10,6 @@ import java.util.List;
 
 @Component
 public class WalkieTalkieRunner implements ApplicationRunner {
-
     private final Communication communication;
     private final Transmission transmission;
 
