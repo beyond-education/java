@@ -27,13 +27,12 @@ public class MachineRunner implements ApplicationRunner {
         List<String> snacks = Arrays.stream(snacksLine.split(",")).toList();
         snacks.forEach(snack -> vendorMachineService.add(snack));
         System.out.println("snacks = " + vendorMachineService.getAllSnacks());
-        String snack = "";
-        String snackCode;
         while (!vendorMachineService.getAllSnacks().isEmpty()) {
             System.out.print("Please input a snack code: ");
-            snackCode = scanner.nextLine();
+            String snackCode = scanner.nextLine();
             try {
-                snack = vendorMachineService.getSnack(Integer.parseInt(snackCode));
+                int numericCode = Integer.parseInt(snackCode);
+                String snack = vendorMachineService.getSnack(numericCode);
                 System.out.println("Snack " + snack + " was delivered. Enjoy your snack.");
                 System.out.println("Available snacks: " + vendorMachineService.getAllSnacks());
             } catch (NumberFormatException nfe) {
