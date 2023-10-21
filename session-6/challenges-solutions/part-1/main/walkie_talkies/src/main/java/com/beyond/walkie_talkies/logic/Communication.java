@@ -8,7 +8,6 @@ import java.util.Scanner;
 
 @Component
 public class Communication {
-
     private final Scanner scanner;
 
     public Communication(Scanner scanner) {
