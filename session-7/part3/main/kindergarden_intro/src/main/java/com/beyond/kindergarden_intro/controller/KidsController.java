@@ -9,7 +9,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/kids")
 public class KidsController {
-    List<Kid> kids = new ArrayList<>();
+    private final List<Kid> kids = new ArrayList<>();
 
     @GetMapping
     public List<Kid> getKids() {
