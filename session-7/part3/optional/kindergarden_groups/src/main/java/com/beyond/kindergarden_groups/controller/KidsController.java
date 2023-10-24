@@ -10,11 +10,17 @@ import java.util.stream.Collectors;
 @RestController
 @RequestMapping("/kids")
 public class KidsController {
-    List<Kid> kids = new ArrayList<>();
+    private final List<Kid> kids = new ArrayList<>();
 
     @GetMapping
     public List<Kid> getKids() {
         return kids;
+    }
+
+    @PostMapping
+    public String addKid(@RequestBody Kid kid) {
+        kids.add(kid);
+        return "Hi, I am " + kid.name() + " and my favourite colour is "+kid.favoriteColor();
     }
 
     @GetMapping("/blue")
@@ -29,11 +35,5 @@ public class KidsController {
         return kids.stream()
                 .filter(kid -> kid.favoriteColor().equals("red"))
                 .toList();
-    }
-
-    @PostMapping
-    public String addKid(@RequestBody Kid kid) {
-        kids.add(kid);
-        return "Hi, I am " + kid.name() + " and my favourite colour is "+kid.favoriteColor();
     }
 }
