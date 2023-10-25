@@ -10,12 +10,6 @@ import java.util.List;
 @RequestMapping("/greeting")
 public class GreetingController {
 
-    private final List<String> greetings;
-
-    public GreetingController(List<String> greetings) {
-        this.greetings = greetings;
-    }
-
     @GetMapping("/one")
     public String getGreeting() {
         return "How do you do?";
@@ -23,6 +17,6 @@ public class GreetingController {
 
     @GetMapping("/many")
     public List<String> getGreetings() {
-        return greetings;
+        return List.of("Good morning", "Good afternoon", "Good evening", "Good night");
     }
 }

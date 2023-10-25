@@ -5,8 +5,9 @@ import org.springframework.stereotype.Service;
 @Service
 public class TextService {
     public void spellText(String text) {
-        for (String s : text.split("")) {
-            System.out.println(s);
+        String[] letters = text.split("");
+        for (String letter : letters) {
+            System.out.println(letter);
         }
     }
 }

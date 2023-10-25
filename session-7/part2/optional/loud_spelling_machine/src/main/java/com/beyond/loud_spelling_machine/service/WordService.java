@@ -8,6 +8,9 @@ import java.util.stream.Collectors;
 @Service
 public class WordService {
     public String transformWord(String text) {
-        return Arrays.stream(text.split("")).collect(Collectors.joining("-"));
+        String[] letters = text.split("");
+        return Arrays.stream(letters)
+                .map(String::toUpperCase)
+                .collect(Collectors.joining("-"));
     }
 }
