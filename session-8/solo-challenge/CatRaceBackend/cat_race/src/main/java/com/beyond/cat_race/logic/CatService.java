@@ -1,7 +1,6 @@
 package com.beyond.cat_race.logic;
 
 import com.beyond.cat_race.data.Cat;
-import com.beyond.cat_race.exceptions.NoCatsFoundException;
 import com.beyond.cat_race.repository.CatRepository;
 import org.springframework.stereotype.Service;
 
@@ -16,8 +15,9 @@ public class CatService {
         this.catRepository = catRepository;
     }
 
-    public void add(Cat cat) {
+    public Cat add(Cat cat) {
         catRepository.getCats().add(cat);
+        return cat;
     }
 
     public List<Cat> getCats() {
@@ -28,9 +28,9 @@ public class CatService {
         return catRepository.getCats().removeIf(cat -> cat.name().equals(name));
     }
 
-    public Cat getCat(String name) {
+    public Optional<Cat> getCat(String name) {
         return catRepository.getCats().stream()
                 .filter(cat -> cat.name().equals(name))
-                .findFirst().orElseThrow(()->new NoCatsFoundException());
+                .findFirst();
     }
 }

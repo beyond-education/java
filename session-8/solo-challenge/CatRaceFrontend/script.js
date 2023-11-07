@@ -22,7 +22,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const catSpeed = document.getElementById('catSpeed').value;
         const catAgility = document.getElementById('catAgility').value;
 
-        fetch(`${BASE_URL}/cat`, {
+        fetch(`${BASE_URL}/cats`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -60,7 +60,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     document.getElementById('getCatByName').addEventListener('click', function() {
         const catName = document.getElementById('manageCatName').value;
-        fetch(`${BASE_URL}/cat/${catName}`)
+        fetch(`${BASE_URL}/cats/${catName}`)
         .then(response => response.json())
         .then(data => {
             displayCats(`Name: ${data.name}, Speed: ${data.speed}, Agility: ${data.agility}`);
@@ -73,7 +73,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     document.getElementById('deleteCatByName').addEventListener('click', function() {
         const catName = document.getElementById('manageCatName').value;
-        fetch(`${BASE_URL}/cat/${catName}`, { method: 'DELETE' })
+        fetch(`${BASE_URL}/cats/${catName}`, { method: 'DELETE' })
         .then(response => {
             if(response.ok) {
                 displayCats(`Cat named ${catName} deleted.`);
@@ -88,7 +88,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     document.getElementById('startRaceBtn').addEventListener('click', function() {
-        fetch(`${BASE_URL}/start`)
+        fetch(`${BASE_URL}/race/start`)
         .then(response => response.json())
         .then(data => {
             const winnerText = `The winner is ${data.name} with speed: ${data.speed} and agility: ${data.agility}!`;

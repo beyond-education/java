@@ -1,49 +1,44 @@
 package com.beyond.cat_race.controller;
 
 import com.beyond.cat_race.data.Cat;
+import com.beyond.cat_race.exceptions.NoCatsFoundException;
 import com.beyond.cat_race.logic.CatService;
-import com.beyond.cat_race.logic.RaceService;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
+@RequestMapping("cats")
 @CrossOrigin(allowedHeaders = "*")
-public class CatRaceController {
+public class CatController {
 
     private final CatService catService;
-    private final RaceService raceService;
 
-    public CatRaceController(CatService catService, RaceService raceService) {
+    public CatController(CatService catService) {
         this.catService = catService;
-        this.raceService = raceService;
     }
 
-    @GetMapping("cats")
+    @GetMapping
     List<Cat> getAll() {
         return catService.getCats();
     }
 
-    @GetMapping("cat/{name}")
+    @GetMapping("{name}")
     @ResponseStatus(HttpStatus.FOUND)
-    Cat getCat(@PathVariable String name) {
-        return catService.getCat(name);
+    Cat getCat(@PathVariable String name) throws NoCatsFoundException {
+        return catService.getCat(name)
+                .orElseThrow(NoCatsFoundException::new);
     }
 
-    @GetMapping("start")
-    Cat startRace() {
-        return raceService.evaluateWinningCat();
-    }
-
-    @PostMapping("cat")
+    @PostMapping
     Cat addCat(@RequestBody Cat cat) {
-        catService.add(cat);
-        return cat;
+        return catService.add(cat);
     }
 
-    @DeleteMapping("cat/{name}")
+    @DeleteMapping("{name}")
     boolean delete(@PathVariable String name) {
         return catService.deleteCat(name);
     }
 }
+
