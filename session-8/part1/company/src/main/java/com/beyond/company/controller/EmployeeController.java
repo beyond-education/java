@@ -2,6 +2,7 @@ package com.beyond.company.controller;
 
 
 import com.beyond.company.data.Employee;
+import com.beyond.company.exception.EmployeeNotFoundException;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
@@ -17,6 +18,14 @@ public class EmployeeController {
     @GetMapping
     List<Employee> getAll() {
         return employees;
+    }
+
+    @GetMapping("{id}")
+    Employee get(@PathVariable String id) throws EmployeeNotFoundException {
+        return employees.stream()
+                .filter(employee -> employee.id().equals(id))
+                .findFirst()
+                .orElseThrow(() -> new EmployeeNotFoundException());
     }
 
     @PostMapping
@@ -38,5 +47,14 @@ public class EmployeeController {
     @DeleteMapping
     void deleteAll() {
         employees.clear();
+    }
+
+    @DeleteMapping("{id}")
+    void delete(@PathVariable String id) throws EmployeeNotFoundException {
+        boolean removed = employees
+                .removeIf(employee -> employee.id().equals(id));
+        if(!removed) {
+            throw new EmployeeNotFoundException();
+        }
     }
 }
