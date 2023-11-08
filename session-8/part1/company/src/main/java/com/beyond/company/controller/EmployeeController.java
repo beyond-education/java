@@ -39,5 +39,4 @@ public class EmployeeController {
     void deleteAll() {
         employees.clear();
     }
-
 }
